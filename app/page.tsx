@@ -51,6 +51,24 @@ const CONTENT = {
       logoBg: "bg-slate-100",
     },
     {
+      name: "Reset Health",
+      detail: "Investor",
+      description:
+        "Healthcare company focused on [description placeholder — update as needed].",
+      logo: null,
+      initials: "RH",
+      logoBg: "bg-slate-100",
+    },
+    {
+      name: "Interblock",
+      detail: "Investor",
+      description:
+        "Electronic table gaming technology company [description placeholder — update as needed].",
+      logo: null,
+      initials: "IB",
+      logoBg: "bg-slate-100",
+    },
+    {
       name: "Pippin (Broadway)",
       detail: "Producer, 2013",
       description:
