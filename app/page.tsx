@@ -79,6 +79,7 @@ const CONTENT = {
   ],
 
   contact: {
+    address: "667 Madison Avenue\nNew York, NY 10065",
     phone: "+1 (917) 414-2175",
     phoneHref: "tel:+19174142175",
     email: "drobbins663@gmail.com",
@@ -335,6 +336,14 @@ function Contact() {
           </div>
 
           <div className="lg:col-span-2 flex flex-col gap-0 divide-y divide-white/10">
+            <div className="py-6">
+              <p className="text-xs tracking-widest uppercase text-gray-500 mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>
+                Office
+              </p>
+              <p className="text-[15px] text-gray-300 whitespace-pre-line" style={{ fontFamily: "var(--font-inter)" }}>
+                {CONTENT.contact.address}
+              </p>
+            </div>
             {[
               { label: "Phone", href: phoneHref, text: phone },
               { label: "Email", href: emailHref, text: email },
