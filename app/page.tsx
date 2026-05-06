@@ -80,6 +80,8 @@ const CONTENT = {
 
   contact: {
     address: "667 Madison Avenue\nNew York, NY 10065",
+    officePhone: "+1 (212) 813-9205",
+    officePhoneHref: "tel:+12128139205",
     phone: "+1 (917) 414-2175",
     phoneHref: "tel:+19174142175",
     email: "drobbins663@gmail.com",
@@ -299,7 +301,7 @@ function Investments() {
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
 function Contact() {
-  const { address, phone, phoneHref, email, emailHref, linkedinHref } = CONTENT.contact;
+  const { address, officePhone, officePhoneHref, phone, phoneHref, email, emailHref, linkedinHref } = CONTENT.contact;
 
   return (
     <section id="contact" className="bg-white py-20">
@@ -347,7 +349,23 @@ function Contact() {
                   className="text-xs tracking-widest uppercase text-gray-400 mb-2"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
-                  Phone
+                  Office Phone
+                </p>
+                <a
+                  href={officePhoneHref}
+                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {officePhone}
+                </a>
+              </div>
+
+              <div>
+                <p
+                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Mobile
                 </p>
                 <a
                   href={phoneHref}
