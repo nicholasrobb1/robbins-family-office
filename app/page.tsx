@@ -193,18 +193,17 @@ function About() {
   );
 }
 
-// ─── City Banner ─────────────────────────────────────────────────────────────
-function CityBanner() {
+// ─── Office Image ─────────────────────────────────────────────────────────────
+function OfficeImage() {
   return (
-    <div className="relative w-full h-52 md:h-64 overflow-hidden">
+    <div className="relative w-full aspect-[16/7] overflow-hidden">
       <Image
-        src="/nyc-midtown.jpg"
-        alt="New York City midtown"
+        src="/office.avif"
+        alt="Robbins Capital Investments office"
         fill
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[#0d1b2a]/40" />
     </div>
   );
 }
@@ -403,7 +402,7 @@ export default function Home() {
       <Nav />
       <main>
         <About />
-        <CityBanner />
+        <OfficeImage />
         <Investments />
         <Contact />
       </main>
