@@ -77,7 +77,7 @@ function Nav() {
       style={{ fontFamily: "var(--font-inter)" }}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[60px] flex items-center justify-between">
-        <span className="text-white text-sm font-medium tracking-wide">
+        <span className="text-white text-base font-semibold tracking-wide" style={{ fontFamily: "var(--font-garamond)" }}>
           {CONTENT.siteName}
         </span>
         <nav className="hidden md:flex items-center gap-10">
@@ -127,7 +127,7 @@ function Hero() {
 // ─── About ────────────────────────────────────────────────────────────────────
 function About() {
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="bg-white pt-[60px]">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Text */}
         <div>
@@ -375,7 +375,6 @@ export default function Home() {
     <>
       <Nav />
       <main>
-        <Hero />
         <About />
         <CityBanner />
         <Investments />
