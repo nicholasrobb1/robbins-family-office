@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 // ─── Content ─────────────────────────────────────────────────────────────────
-// Edit the CONTENT object to update all site text without touching layout code.
 const CONTENT = {
   name: "David B. Robbins",
   tagline: "Family Office",
@@ -22,36 +21,52 @@ const CONTENT = {
       detail: "Chairman, 1996–2014  ·  NYSE: BYI",
       description:
         "Publicly traded gaming equipment and technology company acquired by Scientific Games in 2014.",
+      logo: "/bally-logo.png",
+      logoBg: "bg-[#002855]",
     },
     {
       name: "Trevi Health Capital",
       detail: "Co-Founder, 2005",
       description:
         "Healthcare-focused private equity firm emphasizing healthcare information systems and medical technology.",
+      logo: null,
+      initials: "THC",
+      logoBg: "bg-slate-100",
     },
     {
       name: "Relativity Media",
       detail: "Investor via UltraV Holdings, 2018",
       description:
         "Film and television distribution and production company, acquired in partnership with SoundPoint Capital.",
+      logo: "/relativity-logo.png",
+      logoBg: "bg-black",
     },
     {
       name: "UltraV Holdings",
       detail: "Principal",
       description:
         "Investment vehicle formed in partnership with SoundPoint Capital, focused on media and entertainment assets.",
+      logo: null,
+      initials: "UV",
+      logoBg: "bg-slate-100",
     },
     {
       name: "Alexiam Capital",
       detail: "Principal",
       description:
         "Private investment platform across healthcare, media, and technology.",
+      logo: null,
+      initials: "AC",
+      logoBg: "bg-slate-100",
     },
     {
       name: "Pippin (Broadway)",
       detail: "Producer, 2013",
       description:
         "Tony Award–winning revival of the Stephen Schwartz musical. Best Revival of a Musical, 2013.",
+      logo: null,
+      initials: "🎭",
+      logoBg: "bg-purple-50",
     },
   ],
 
@@ -99,16 +114,16 @@ function Nav() {
 function Hero() {
   return (
     <section className="pt-[60px]">
-      <div className="bg-[#0d1b2a] px-8 lg:px-16 pt-24 pb-20 max-w-full">
+      <div className="bg-[#0d1b2a] px-8 lg:px-16 pt-20 pb-16 max-w-full">
         <div className="max-w-7xl mx-auto">
           <p
-            className="text-xs text-gray-500 tracking-[0.3em] uppercase mb-8"
+            className="text-xs text-gray-500 tracking-[0.3em] uppercase mb-6"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             {CONTENT.tagline}
           </p>
           <h1
-            className="text-6xl md:text-8xl text-white font-normal leading-[1.05] tracking-tight"
+            className="text-4xl md:text-6xl text-white font-normal leading-[1.1] tracking-tight"
             style={{ fontFamily: "var(--font-garamond)" }}
           >
             {CONTENT.name}
@@ -123,7 +138,6 @@ function Hero() {
 function About() {
   return (
     <section id="about" className="bg-white">
-      {/* Two-column: text left, photo right */}
       <div className="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Text */}
         <div>
@@ -134,7 +148,7 @@ function About() {
             About
           </p>
           <h2
-            className="text-4xl font-normal text-gray-900 mb-8 leading-tight"
+            className="text-3xl font-normal text-gray-900 mb-8 leading-tight"
             style={{ fontFamily: "var(--font-garamond)" }}
           >
             {CONTENT.about.headline}
@@ -152,16 +166,18 @@ function About() {
           </div>
         </div>
 
-        {/* Headshot */}
-        <div className="relative w-full aspect-[3/4] lg:aspect-[4/5] bg-gray-100">
-          <Image
-            src="/david-robbins.jpg"
-            alt="David B. Robbins"
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+        {/* Headshot — constrained width so it doesn't overpower */}
+        <div className="flex justify-center lg:justify-end">
+          <div className="relative w-64 md:w-72 lg:w-80 aspect-[3/4] bg-gray-100 shadow-sm">
+            <Image
+              src="/david-robbins.jpg"
+              alt="David B. Robbins"
+              fill
+              className="object-cover object-top"
+              sizes="320px"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -171,7 +187,7 @@ function About() {
 // ─── City Banner ─────────────────────────────────────────────────────────────
 function CityBanner() {
   return (
-    <div className="relative w-full h-64 md:h-80 overflow-hidden">
+    <div className="relative w-full h-52 md:h-64 overflow-hidden">
       <Image
         src="/nyc-midtown.jpg"
         alt="New York City midtown"
@@ -180,6 +196,44 @@ function CityBanner() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-[#0d1b2a]/40" />
+    </div>
+  );
+}
+
+// ─── Investment Logo ──────────────────────────────────────────────────────────
+function InvestmentLogo({
+  logo,
+  initials,
+  logoBg,
+  name,
+}: {
+  logo: string | null;
+  initials?: string;
+  logoBg: string;
+  name: string;
+}) {
+  return (
+    <div
+      className={`w-14 h-10 rounded flex items-center justify-center shrink-0 overflow-hidden ${logoBg}`}
+    >
+      {logo ? (
+        <div className="relative w-full h-full p-1.5">
+          <Image
+            src={logo}
+            alt={name}
+            fill
+            className="object-contain p-1.5"
+            sizes="56px"
+          />
+        </div>
+      ) : (
+        <span
+          className="text-xs font-semibold text-gray-500"
+          style={{ fontFamily: "var(--font-inter)" }}
+        >
+          {initials}
+        </span>
+      )}
     </div>
   );
 }
@@ -199,7 +253,7 @@ function Investments() {
               Portfolio
             </p>
             <h2
-              className="text-4xl font-normal text-gray-900 leading-tight"
+              className="text-3xl font-normal text-gray-900 leading-tight"
               style={{ fontFamily: "var(--font-garamond)" }}
             >
               Investments &amp; Holdings
@@ -210,23 +264,31 @@ function Investments() {
           <div className="lg:col-span-2">
             <div className="divide-y divide-gray-100">
               {CONTENT.investments.map((inv) => (
-                <div key={inv.name} className="py-7">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-                    <h3
-                      className="text-xl font-normal text-gray-900"
-                      style={{ fontFamily: "var(--font-garamond)" }}
-                    >
-                      {inv.name}
-                    </h3>
-                    <span
-                      className="text-xs text-gray-400 tracking-wide shrink-0"
-                      style={{ fontFamily: "var(--font-inter)" }}
-                    >
-                      {inv.detail}
-                    </span>
+                <div key={inv.name} className="py-6">
+                  <div className="flex items-center gap-4 mb-2">
+                    <InvestmentLogo
+                      logo={inv.logo ?? null}
+                      initials={inv.initials}
+                      logoBg={inv.logoBg}
+                      name={inv.name}
+                    />
+                    <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                      <h3
+                        className="text-xl font-normal text-gray-900"
+                        style={{ fontFamily: "var(--font-garamond)" }}
+                      >
+                        {inv.name}
+                      </h3>
+                      <span
+                        className="text-xs text-gray-400 tracking-wide shrink-0"
+                        style={{ fontFamily: "var(--font-inter)" }}
+                      >
+                        {inv.detail}
+                      </span>
+                    </div>
                   </div>
                   <p
-                    className="text-[14px] text-gray-500 leading-relaxed"
+                    className="text-[14px] text-gray-500 leading-relaxed pl-[4.5rem]"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {inv.description}
@@ -249,7 +311,6 @@ function Contact() {
     <section id="contact" className="bg-[#0d1b2a] py-20">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          {/* Label */}
           <div>
             <p
               className="text-xs tracking-[0.25em] uppercase text-gray-500 mb-4"
@@ -258,14 +319,13 @@ function Contact() {
               Contact
             </p>
             <h2
-              className="text-4xl font-normal text-white leading-tight"
+              className="text-3xl font-normal text-white leading-tight"
               style={{ fontFamily: "var(--font-garamond)" }}
             >
               Get in Touch
             </h2>
           </div>
 
-          {/* Links */}
           <div className="lg:col-span-2 flex flex-col gap-0 divide-y divide-white/10">
             {[
               { label: "Phone", href: phoneHref, text: phone },
