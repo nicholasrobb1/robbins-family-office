@@ -55,18 +55,16 @@ const CONTENT = {
       detail: "Investor",
       description:
         "Healthcare company focused on [description placeholder — update as needed].",
-      logo: null,
-      initials: "RH",
-      logoBg: "bg-slate-100",
+      logo: "/reset-health-logo.jpg",
+      logoBg: "bg-white",
     },
     {
       name: "Interblock",
       detail: "Investor",
       description:
         "Electronic table gaming technology company [description placeholder — update as needed].",
-      logo: null,
-      initials: "IB",
-      logoBg: "bg-slate-100",
+      logo: "/interblock-logo.png",
+      logoBg: "bg-white",
     },
     {
       name: "Pippin (Broadway)",
