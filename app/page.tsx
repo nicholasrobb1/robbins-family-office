@@ -1,71 +1,57 @@
-// ─── Content ────────────────────────────────────────────────────────────────
-// Edit the CONTENT object below to update all site content without touching
-// any layout or styling code.
+import Image from "next/image";
+
+// ─── Content ─────────────────────────────────────────────────────────────────
+// Edit the CONTENT object to update all site text without touching layout code.
 const CONTENT = {
   name: "David B. Robbins",
-  title: "Investor · Entrepreneur · Chairman",
   tagline: "Family Office",
 
   about: {
-    intro:
-      "David B. Robbins is a seasoned investor and entrepreneur whose career spans corporate law, private equity, gaming, media, and healthcare. Educated at the Wharton School of the University of Pennsylvania (B.S. Economics) and NYU School of Law (J.D.), he built his professional foundation in corporate law before transitioning into investment management and company leadership.",
-    body: `David served as Chairman of Bally Technologies (NYSE: BYI) from 1996 until its landmark acquisition by Scientific Games in 2014. During his tenure, Bally grew into one of the premier gaming equipment and technology companies in the world.
-
-Alongside his work in gaming, David co-founded Trevi Health Capital in 2005, a healthcare-focused private equity firm emphasizing healthcare information and medical technology. He has since pursued a range of investments across media and entertainment, life sciences, and gaming through his family office.
-
-Beyond investment, David has been an active cultural patron. He produced the Tony Award–winning 2013 Broadway revival of Pippin, recognized as Best Revival of a Musical.
-
-His philanthropic work centers on neurology and developmental medicine. Through his family foundation, he supports Columbia University's Institute for Genomic Medicine and NYU Langone Medical Center, and serves on boards addressing epilepsy, autism, and developmental disabilities.`,
+    headline: "Background",
+    paragraphs: [
+      "David B. Robbins is a seasoned investor and entrepreneur whose career spans corporate law, private equity, gaming, media, and healthcare. He holds a B.S. in Economics from the Wharton School of the University of Pennsylvania and a J.D. from NYU School of Law.",
+      "David served as Chairman of Bally Technologies (NYSE: BYI) from 1996 until its acquisition by Scientific Games in 2014, during which time Bally grew into one of the premier gaming equipment and technology companies in the world.",
+      "He co-founded Trevi Health Capital in 2005, a healthcare-focused private equity firm emphasizing healthcare information and medical technology, and has since built a diversified portfolio across media, entertainment, and life sciences through his family office.",
+      "Beyond investment, David produced the Tony Award–winning 2013 Broadway revival of Pippin (Best Revival of a Musical). His philanthropic work, conducted through his family foundation, supports Columbia University's Institute for Genomic Medicine and NYU Langone Medical Center, with a focus on epilepsy, autism, and developmental disabilities.",
+    ],
   },
 
   investments: [
     {
       name: "Bally Technologies",
-      ticker: "NYSE: BYI",
-      role: "Chairman, 1996–2014",
+      detail: "Chairman, 1996–2014  ·  NYSE: BYI",
       description:
-        "Publicly traded gaming equipment and technology company. Acquired by Scientific Games in 2014.",
-      category: "Gaming & Technology",
+        "Publicly traded gaming equipment and technology company acquired by Scientific Games in 2014.",
     },
     {
       name: "Trevi Health Capital",
-      ticker: null,
-      role: "Co-Founder, 2005",
+      detail: "Co-Founder, 2005",
       description:
-        "Healthcare-focused private equity firm with an emphasis on healthcare information systems and medical technology.",
-      category: "Healthcare & Life Sciences",
+        "Healthcare-focused private equity firm emphasizing healthcare information systems and medical technology.",
     },
     {
       name: "Relativity Media",
-      ticker: null,
-      role: "Investor via UltraV Holdings, 2018",
+      detail: "Investor via UltraV Holdings, 2018",
       description:
-        "Film and television distribution and production company acquired in partnership with SoundPoint Capital.",
-      category: "Media & Entertainment",
+        "Film and television distribution and production company, acquired in partnership with SoundPoint Capital.",
     },
     {
       name: "UltraV Holdings",
-      ticker: null,
-      role: "Principal",
+      detail: "Principal",
       description:
         "Investment vehicle formed in partnership with SoundPoint Capital, focused on media and entertainment assets.",
-      category: "Media & Entertainment",
     },
     {
       name: "Alexiam Capital",
-      ticker: null,
-      role: "Principal",
+      detail: "Principal",
       description:
-        "Private investment platform pursuing opportunities across diversified sectors including healthcare, media, and technology.",
-      category: "Private Equity",
+        "Private investment platform across healthcare, media, and technology.",
     },
     {
       name: "Pippin (Broadway)",
-      ticker: null,
-      role: "Producer, 2013",
+      detail: "Producer, 2013",
       description:
-        "Tony Award–winning revival of the Stephen Schwartz musical. Best Revival of a Musical, 2013 Tony Awards.",
-      category: "Arts & Culture",
+        "Tony Award–winning revival of the Stephen Schwartz musical. Best Revival of a Musical, 2013.",
     },
   ],
 
@@ -74,40 +60,33 @@ His philanthropic work centers on neurology and developmental medicine. Through 
     phoneHref: "tel:+19174142175",
     email: "drobbins663@gmail.com",
     emailHref: "mailto:drobbins663@gmail.com",
-    linkedinLabel: "LinkedIn Profile",
     linkedinHref: "https://www.linkedin.com/in/david-robbins-2472b923/",
   },
 };
 
-// ─── Category badge colors ────────────────────────────────────────────────────
-const CATEGORY_COLORS: Record<string, string> = {
-  "Gaming & Technology": "bg-slate-100 text-slate-700",
-  "Healthcare & Life Sciences": "bg-emerald-50 text-emerald-700",
-  "Media & Entertainment": "bg-amber-50 text-amber-700",
-  "Private Equity": "bg-blue-50 text-blue-700",
-  "Arts & Culture": "bg-purple-50 text-purple-700",
-};
-
-// ─── Nav ──────────────────────────────────────────────────────────────────────
+// ─── Nav ─────────────────────────────────────────────────────────────────────
 function Nav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        <span
-          className="text-xs tracking-[0.25em] uppercase text-gray-400 font-medium"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          {CONTENT.tagline}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2a]"
+      style={{ fontFamily: "var(--font-inter)" }}
+    >
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[60px] flex items-center justify-between">
+        <span className="text-white text-sm font-medium tracking-wide">
+          {CONTENT.name}
         </span>
-        <nav className="hidden md:flex items-center gap-8">
-          {["About", "Investments", "Contact"].map((item) => (
+        <nav className="hidden md:flex items-center gap-10">
+          {[
+            { label: "About", href: "#about" },
+            { label: "Investments", href: "#investments" },
+            { label: "Contact", href: "#contact" },
+          ].map(({ label, href }) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-sm text-gray-400 hover:text-gray-800 tracking-wide transition-colors duration-200"
-              style={{ fontFamily: "var(--font-inter)" }}
+              key={label}
+              href={href}
+              className="text-xs text-gray-400 hover:text-white tracking-widest uppercase transition-colors duration-200"
             >
-              {item}
+              {label}
             </a>
           ))}
         </nav>
@@ -119,27 +98,22 @@ function Nav() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="pt-40 pb-28 px-6 lg:px-12 bg-[#0d1b2a]">
-      <div className="max-w-6xl mx-auto">
-        <p
-          className="text-xs tracking-[0.3em] uppercase text-[#b8963e] mb-8 font-medium"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          {CONTENT.tagline}
-        </p>
-        <h1
-          className="text-5xl md:text-7xl font-light text-white leading-tight tracking-tight mb-6"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          {CONTENT.name}
-        </h1>
-        <div className="w-12 h-px bg-[#b8963e] mb-6" />
-        <p
-          className="text-base text-gray-400 tracking-widest uppercase text-sm"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          {CONTENT.title}
-        </p>
+    <section className="pt-[60px]">
+      <div className="bg-[#0d1b2a] px-8 lg:px-16 pt-24 pb-20 max-w-full">
+        <div className="max-w-7xl mx-auto">
+          <p
+            className="text-xs text-gray-500 tracking-[0.3em] uppercase mb-8"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            {CONTENT.tagline}
+          </p>
+          <h1
+            className="text-6xl md:text-8xl text-white font-normal leading-[1.05] tracking-tight"
+            style={{ fontFamily: "var(--font-garamond)" }}
+          >
+            {CONTENT.name}
+          </h1>
+        </div>
       </div>
     </section>
   );
@@ -147,47 +121,174 @@ function Hero() {
 
 // ─── About ────────────────────────────────────────────────────────────────────
 function About() {
-  const paragraphs = CONTENT.about.body
-    .split("\n\n")
-    .filter((p) => p.trim().length > 0);
-
   return (
-    <section id="about" className="py-24 px-6 lg:px-12 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          {/* Label column */}
-          <div className="lg:pt-2">
-            <p
-              className="text-xs tracking-[0.25em] uppercase text-[#b8963e] font-medium mb-3"
-              style={{ fontFamily: "var(--font-inter)" }}
-            >
-              About
-            </p>
-            <h2
-              className="text-2xl font-light text-gray-900 leading-snug"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Background &amp; Career
-            </h2>
-            <div className="w-8 h-px bg-[#b8963e] mt-4" />
-          </div>
-
-          {/* Content column */}
-          <div className="lg:col-span-2 space-y-5">
-            <p
-              className="text-lg text-gray-800 leading-relaxed"
-              style={{ fontFamily: "var(--font-inter)" }}
-            >
-              {CONTENT.about.intro}
-            </p>
-            {paragraphs.map((para, i) => (
+    <section id="about" className="bg-white">
+      {/* Two-column: text left, photo right */}
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* Text */}
+        <div>
+          <p
+            className="text-xs tracking-[0.25em] uppercase text-gray-400 mb-4"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            About
+          </p>
+          <h2
+            className="text-4xl font-normal text-gray-900 mb-8 leading-tight"
+            style={{ fontFamily: "var(--font-garamond)" }}
+          >
+            {CONTENT.about.headline}
+          </h2>
+          <div className="space-y-5">
+            {CONTENT.about.paragraphs.map((para, i) => (
               <p
                 key={i}
-                className="text-base text-gray-600 leading-relaxed"
+                className="text-[15px] text-gray-600 leading-[1.8]"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {para}
               </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Headshot */}
+        <div className="relative w-full aspect-[3/4] lg:aspect-[4/5] bg-gray-100">
+          <Image
+            src="/david-robbins.jpg"
+            alt="David B. Robbins"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── City Banner ─────────────────────────────────────────────────────────────
+function CityBanner() {
+  return (
+    <div className="relative w-full h-64 md:h-80 overflow-hidden">
+      <Image
+        src="/nyc-midtown.jpg"
+        alt="New York City midtown"
+        fill
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-[#0d1b2a]/40" />
+    </div>
+  );
+}
+
+// ─── Investments ─────────────────────────────────────────────────────────────
+function Investments() {
+  return (
+    <section id="investments" className="bg-white py-20">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          {/* Label */}
+          <div>
+            <p
+              className="text-xs tracking-[0.25em] uppercase text-gray-400 mb-4"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              Portfolio
+            </p>
+            <h2
+              className="text-4xl font-normal text-gray-900 leading-tight"
+              style={{ fontFamily: "var(--font-garamond)" }}
+            >
+              Investments &amp; Holdings
+            </h2>
+          </div>
+
+          {/* List */}
+          <div className="lg:col-span-2">
+            <div className="divide-y divide-gray-100">
+              {CONTENT.investments.map((inv) => (
+                <div key={inv.name} className="py-7">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                    <h3
+                      className="text-xl font-normal text-gray-900"
+                      style={{ fontFamily: "var(--font-garamond)" }}
+                    >
+                      {inv.name}
+                    </h3>
+                    <span
+                      className="text-xs text-gray-400 tracking-wide shrink-0"
+                      style={{ fontFamily: "var(--font-inter)" }}
+                    >
+                      {inv.detail}
+                    </span>
+                  </div>
+                  <p
+                    className="text-[14px] text-gray-500 leading-relaxed"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {inv.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Contact ─────────────────────────────────────────────────────────────────
+function Contact() {
+  const { phone, phoneHref, email, emailHref, linkedinHref } = CONTENT.contact;
+
+  return (
+    <section id="contact" className="bg-[#0d1b2a] py-20">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          {/* Label */}
+          <div>
+            <p
+              className="text-xs tracking-[0.25em] uppercase text-gray-500 mb-4"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              Contact
+            </p>
+            <h2
+              className="text-4xl font-normal text-white leading-tight"
+              style={{ fontFamily: "var(--font-garamond)" }}
+            >
+              Get in Touch
+            </h2>
+          </div>
+
+          {/* Links */}
+          <div className="lg:col-span-2 flex flex-col gap-0 divide-y divide-white/10">
+            {[
+              { label: "Phone", href: phoneHref, text: phone },
+              { label: "Email", href: emailHref, text: email },
+              { label: "LinkedIn", href: linkedinHref, text: "View Profile", external: true },
+            ].map(({ label, href, text, external }) => (
+              <div key={label} className="py-6">
+                <p
+                  className="text-xs tracking-widest uppercase text-gray-500 mb-1.5"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {label}
+                </p>
+                <a
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="text-[15px] text-gray-300 hover:text-white transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {text}
+                </a>
+              </div>
             ))}
           </div>
         </div>
@@ -196,158 +297,11 @@ function About() {
   );
 }
 
-// ─── Investments ──────────────────────────────────────────────────────────────
-function Investments() {
-  return (
-    <section id="investments" className="py-24 px-6 lg:px-12 bg-[#faf9f7]">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-14">
-          <p
-            className="text-xs tracking-[0.25em] uppercase text-[#b8963e] font-medium mb-3"
-            style={{ fontFamily: "var(--font-inter)" }}
-          >
-            Portfolio
-          </p>
-          <h2
-            className="text-2xl font-light text-gray-900"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Investments &amp; Holdings
-          </h2>
-          <div className="w-8 h-px bg-[#b8963e] mt-4" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CONTENT.investments.map((inv) => (
-            <div
-              key={inv.name}
-              className="bg-white border border-gray-100 p-7 flex flex-col gap-4 hover:border-gray-200 hover:shadow-sm transition-all duration-300"
-            >
-              <span
-                className={`self-start text-xs font-medium px-2.5 py-1 rounded-sm tracking-wide ${
-                  CATEGORY_COLORS[inv.category] ?? "bg-gray-100 text-gray-600"
-                }`}
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {inv.category}
-              </span>
-
-              <div>
-                <h3
-                  className="text-lg font-semibold text-gray-900 leading-snug"
-                  style={{ fontFamily: "var(--font-playfair)" }}
-                >
-                  {inv.name}
-                </h3>
-                {inv.ticker && (
-                  <p
-                    className="text-xs text-gray-400 mt-1 font-mono"
-                    style={{ fontFamily: "var(--font-inter)" }}
-                  >
-                    {inv.ticker}
-                  </p>
-                )}
-              </div>
-
-              <p
-                className="text-xs font-medium text-[#b8963e] tracking-wide"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {inv.role}
-              </p>
-
-              <p
-                className="text-sm text-gray-500 leading-relaxed flex-1"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {inv.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Contact ──────────────────────────────────────────────────────────────────
-function ContactItem({
-  label,
-  href,
-  value,
-  external,
-}: {
-  label: string;
-  href: string;
-  value: string;
-  external?: boolean;
-}) {
-  return (
-    <div className="border-t border-white/10 pt-6">
-      <p
-        className="text-xs tracking-widest uppercase text-gray-500 mb-2"
-        style={{ fontFamily: "var(--font-inter)" }}
-      >
-        {label}
-      </p>
-      <a
-        href={href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
-        className="text-base text-gray-200 hover:text-[#b8963e] transition-colors duration-200"
-        style={{ fontFamily: "var(--font-inter)" }}
-      >
-        {value}
-      </a>
-    </div>
-  );
-}
-
-function Contact() {
-  const { phone, phoneHref, email, emailHref, linkedinLabel, linkedinHref } =
-    CONTENT.contact;
-
-  return (
-    <section id="contact" className="py-24 px-6 lg:px-12 bg-[#0d1b2a]">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="lg:pt-2">
-            <p
-              className="text-xs tracking-[0.25em] uppercase text-[#b8963e] font-medium mb-3"
-              style={{ fontFamily: "var(--font-inter)" }}
-            >
-              Contact
-            </p>
-            <h2
-              className="text-2xl font-light text-white leading-snug"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Get in Touch
-            </h2>
-            <div className="w-8 h-px bg-[#b8963e] mt-4" />
-          </div>
-
-          <div className="lg:col-span-2 flex flex-col gap-0">
-            <ContactItem label="Phone" href={phoneHref} value={phone} />
-            <ContactItem label="Email" href={emailHref} value={email} />
-            <ContactItem
-              label="LinkedIn"
-              href={linkedinHref}
-              value={linkedinLabel}
-              external
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Footer ───────────────────────────────────────────────────────────────────
+// ─── Footer ──────────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer className="bg-[#0a1520] border-t border-white/5 py-8 px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="bg-[#0a1520] border-t border-white/5 py-8 px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
         <p
           className="text-xs text-gray-600"
           style={{ fontFamily: "var(--font-inter)" }}
@@ -373,6 +327,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <CityBanner />
         <Investments />
         <Contact />
       </main>

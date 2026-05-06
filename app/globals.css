@@ -2,20 +2,11 @@
 
 :root {
   --navy: #0d1b2a;
-  --navy-light: #1a2d42;
   --gold: #b8963e;
-  --gold-light: #d4af5a;
   --cream: #faf9f7;
-  --gray-light: #f3f4f6;
-  --gray-mid: #9ca3af;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-}
-
-@theme inline {
-  --color-navy: var(--navy);
-  --color-gold: var(--gold);
-  --color-cream: var(--cream);
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --border: #e5e5e5;
 }
 
 html {
@@ -25,13 +16,6 @@ html {
 body {
   background: #ffffff;
   color: var(--text-primary);
-  font-family: var(--font-inter), Georgia, serif;
   -webkit-font-smoothing: antialiased;
-}
-
-.section-divider {
-  width: 3rem;
-  height: 2px;
-  background: var(--gold);
-  margin: 1.5rem 0;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, EB_Garamond } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,14 +8,16 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const garamond = EB_Garamond({
+  variable: "--font-garamond",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "David Robbins | Family Office",
+  title: "David B. Robbins",
   description:
     "David B. Robbins — investor, entrepreneur, and former chairman of Bally Technologies. Background in private equity, media, gaming, and healthcare.",
 };
@@ -28,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${inter.variable} ${garamond.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
