@@ -77,7 +77,7 @@ function Nav() {
       style={{ fontFamily: "var(--font-inter)" }}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[60px] flex items-center justify-between">
-        <span className="text-white text-base font-semibold tracking-wide" style={{ fontFamily: "var(--font-garamond)" }}>
+        <span className="text-white text-2xl font-normal tracking-wide" style={{ fontFamily: "var(--font-garamond)" }}>
           {CONTENT.siteName}
         </span>
         <nav className="hidden md:flex items-center gap-10">
