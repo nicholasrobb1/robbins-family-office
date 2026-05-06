@@ -193,20 +193,6 @@ function About() {
   );
 }
 
-// ─── Office Image ─────────────────────────────────────────────────────────────
-function OfficeImage() {
-  return (
-    <div className="relative w-full aspect-[16/7] overflow-hidden">
-      <Image
-        src="/office.avif"
-        alt="Robbins Capital Investments office"
-        fill
-        className="object-cover object-center"
-        sizes="100vw"
-      />
-    </div>
-  );
-}
 
 // ─── Investment Logo ──────────────────────────────────────────────────────────
 function InvestmentLogo({
@@ -313,59 +299,99 @@ function Investments() {
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
 function Contact() {
-  const { phone, phoneHref, email, emailHref, linkedinHref } = CONTENT.contact;
+  const { address, phone, phoneHref, email, emailHref, linkedinHref } = CONTENT.contact;
 
   return (
-    <section id="contact" className="bg-[#0d1b2a] py-20">
+    <section id="contact" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div>
-            <p
-              className="text-xs tracking-[0.25em] uppercase text-gray-500 mb-4"
-              style={{ fontFamily: "var(--font-inter)" }}
-            >
-              Contact
-            </p>
-            <h2
-              className="text-3xl font-normal text-white leading-tight"
-              style={{ fontFamily: "var(--font-garamond)" }}
-            >
-              Get in Touch
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+
+          {/* Office image */}
+          <div className="relative min-h-[420px]">
+            <Image
+              src="/office.avif"
+              alt="Robbins Capital Investments office"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
 
-          <div className="lg:col-span-2 flex flex-col gap-0 divide-y divide-white/10">
-            <div className="py-6">
-              <p className="text-xs tracking-widest uppercase text-gray-500 mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>
-                Office
-              </p>
-              <p className="text-[15px] text-gray-300 whitespace-pre-line" style={{ fontFamily: "var(--font-inter)" }}>
-                {CONTENT.contact.address}
-              </p>
-            </div>
-            {[
-              { label: "Phone", href: phoneHref, text: phone },
-              { label: "Email", href: emailHref, text: email },
-              { label: "LinkedIn", href: linkedinHref, text: "View Profile", external: true },
-            ].map(({ label, href, text, external }) => (
-              <div key={label} className="py-6">
+          {/* Contact details */}
+          <div className="flex flex-col justify-center px-12 py-16 bg-white">
+            <h2
+              className="text-3xl font-normal text-gray-900 mb-10"
+              style={{ fontFamily: "var(--font-garamond)" }}
+            >
+              Robbins Capital Investments
+            </h2>
+
+            <div className="space-y-8">
+              <div>
                 <p
-                  className="text-xs tracking-widest uppercase text-gray-500 mb-1.5"
+                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
-                  {label}
+                  Address
+                </p>
+                <p
+                  className="text-[15px] text-gray-700 whitespace-pre-line leading-relaxed"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {address}
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Phone
                 </p>
                 <a
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="text-[15px] text-gray-300 hover:text-white transition-colors duration-200"
+                  href={phoneHref}
+                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
-                  {text}
+                  {phone}
                 </a>
               </div>
-            ))}
+
+              <div>
+                <p
+                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Email
+                </p>
+                <a
+                  href={emailHref}
+                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {email}
+                </a>
+              </div>
+
+              <div>
+                <p
+                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  LinkedIn
+                </p>
+                <a
+                  href={linkedinHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  View Profile
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -402,7 +428,6 @@ export default function Home() {
       <Nav />
       <main>
         <About />
-        <OfficeImage />
         <Investments />
         <Contact />
       </main>
