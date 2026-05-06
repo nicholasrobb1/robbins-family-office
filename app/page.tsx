@@ -76,8 +76,8 @@ function Nav() {
       className="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2a]"
       style={{ fontFamily: "var(--font-inter)" }}
     >
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[60px] flex items-center justify-between">
-        <span className="text-white text-2xl font-normal tracking-wide" style={{ fontFamily: "var(--font-garamond)" }}>
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[80px] flex items-center justify-between">
+        <span className="text-white text-4xl font-normal tracking-wide uppercase" style={{ fontFamily: "var(--font-garamond)" }}>
           {CONTENT.siteName}
         </span>
         <nav className="hidden md:flex items-center gap-10">
@@ -127,7 +127,7 @@ function Hero() {
 // ─── About ────────────────────────────────────────────────────────────────────
 function About() {
   return (
-    <section id="about" className="bg-white pt-[60px]">
+    <section id="about" className="bg-white pt-[80px]">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Text */}
         <div>
