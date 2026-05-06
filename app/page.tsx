@@ -2,16 +2,17 @@ import Image from "next/image";
 
 // ─── Content ─────────────────────────────────────────────────────────────────
 const CONTENT = {
-  name: "David B. Robbins",
+  name: "David Robbins",
+  siteName: "Robbins Capital Investments",
   tagline: "Family Office",
 
   about: {
     headline: "Background",
     paragraphs: [
-      "David B. Robbins is a seasoned investor and entrepreneur whose career spans corporate law, private equity, gaming, media, and healthcare. He holds a B.S. in Economics from the Wharton School of the University of Pennsylvania and a J.D. from NYU School of Law.",
-      "David served as Chairman of Bally Technologies (NYSE: BYI) from 1996 until its acquisition by Scientific Games in 2014, during which time Bally grew into one of the premier gaming equipment and technology companies in the world.",
-      "He co-founded Trevi Health Capital in 2005, a healthcare-focused private equity firm emphasizing healthcare information and medical technology, and has since built a diversified portfolio across media, entertainment, and life sciences through his family office.",
-      "Beyond investment, David produced the Tony Award–winning 2013 Broadway revival of Pippin (Best Revival of a Musical). His philanthropic work, conducted through his family foundation, supports Columbia University's Institute for Genomic Medicine and NYU Langone Medical Center, with a focus on epilepsy, autism, and developmental disabilities.",
+      "RCI is the single-family investment office of David B. Robbins. Mr. Robbins has a long and distinguished track record identifying, structuring, and creating post investment value across both the private and public markets.",
+      "Mr. Robbins holds a B.S. in Economics from the Wharton School of the University of Pennsylvania and a J.D. from NYU School of Law, and began his career in corporate law before transitioning into investment management.",
+      "He served as Chairman of Bally Technologies (NYSE: BYI) from 1996 until its acquisition by Scientific Games in 2014, during which time Bally grew into one of the premier gaming equipment and technology companies in the world. He co-founded Trevi Health Capital in 2005, a healthcare-focused private equity firm emphasizing healthcare information and medical technology.",
+      "Mr. Robbins produced the Tony Award–winning 2013 Broadway revival of Pippin (Best Revival of a Musical). Through his family foundation, he supports Columbia University's Institute for Genomic Medicine and NYU Langone Medical Center, with a focus on epilepsy, autism, and developmental disabilities.",
     ],
   },
 
@@ -77,7 +78,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16 h-[60px] flex items-center justify-between">
         <span className="text-white text-sm font-medium tracking-wide">
-          {CONTENT.name}
+          {CONTENT.siteName}
         </span>
         <nav className="hidden md:flex items-center gap-10">
           {[
@@ -112,7 +113,7 @@ function Hero() {
             {CONTENT.tagline}
           </p>
           <h1
-            className="text-4xl md:text-6xl text-white font-normal leading-[1.1] tracking-tight"
+            className="text-3xl md:text-5xl text-white font-normal leading-[1.1] tracking-tight"
             style={{ fontFamily: "var(--font-garamond)" }}
           >
             {CONTENT.name}
@@ -155,15 +156,15 @@ function About() {
           </div>
         </div>
 
-        {/* Headshot — constrained width so it doesn't overpower */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative w-64 md:w-72 lg:w-80 aspect-[3/4] bg-gray-100 shadow-sm">
+        {/* Headshot */}
+        <div className="flex justify-center">
+          <div className="relative w-48 md:w-56 aspect-[3/4] bg-gray-100 shadow-sm">
             <Image
               src="/david-robbins.jpg"
-              alt="David B. Robbins"
+              alt="David Robbins"
               fill
               className="object-cover object-top"
-              sizes="320px"
+              sizes="224px"
               priority
             />
           </div>
