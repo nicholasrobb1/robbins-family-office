@@ -349,30 +349,13 @@ function Contact() {
                   className="text-xs tracking-widest uppercase text-gray-400 mb-2"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
-                  Office Phone
+                  Phone
                 </p>
-                <a
-                  href={officePhoneHref}
-                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {officePhone}
+                <a href={officePhoneHref} className="block text-[15px] text-gray-700 hover:text-gray-900 transition-colors" style={{ fontFamily: "var(--font-inter)" }}>
+                  {officePhone} <span className="text-gray-400 text-xs">Office</span>
                 </a>
-              </div>
-
-              <div>
-                <p
-                  className="text-xs tracking-widest uppercase text-gray-400 mb-2"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  Mobile
-                </p>
-                <a
-                  href={phoneHref}
-                  className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {phone}
+                <a href={phoneHref} className="block text-[15px] text-gray-700 hover:text-gray-900 transition-colors mt-1" style={{ fontFamily: "var(--font-inter)" }}>
+                  {phone} <span className="text-gray-400 text-xs">Mobile</span>
                 </a>
               </div>
 
