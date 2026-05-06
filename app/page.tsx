@@ -29,26 +29,16 @@ const CONTENT = {
       detail: "Co-Founder, 2005",
       description:
         "Healthcare-focused private equity firm emphasizing healthcare information systems and medical technology.",
-      logo: null,
-      initials: "THC",
-      logoBg: "bg-slate-100",
+      logo: "/trevi-logo.jpg",
+      logoBg: "bg-white",
     },
     {
       name: "Relativity Media",
-      detail: "Investor via UltraV Holdings, 2018",
+      detail: "Investor, 2018",
       description:
         "Film and television distribution and production company, acquired in partnership with SoundPoint Capital.",
-      logo: "/relativity-logo.png",
-      logoBg: "bg-black",
-    },
-    {
-      name: "UltraV Holdings",
-      detail: "Principal",
-      description:
-        "Investment vehicle formed in partnership with SoundPoint Capital, focused on media and entertainment assets.",
-      logo: null,
-      initials: "UV",
-      logoBg: "bg-slate-100",
+      logo: "/relativity-logo.webp",
+      logoBg: "bg-white",
     },
     {
       name: "Alexiam Capital",
@@ -64,9 +54,8 @@ const CONTENT = {
       detail: "Producer, 2013",
       description:
         "Tony Award–winning revival of the Stephen Schwartz musical. Best Revival of a Musical, 2013.",
-      logo: null,
-      initials: "🎭",
-      logoBg: "bg-purple-50",
+      logo: "/pippin-logo.jpg",
+      logoBg: "bg-[#29a8e0]",
     },
   ],
 
